@@ -1,7 +1,7 @@
 <img src="img/redis-logo-full-color-rgb.png" height=100/>
 
 ## Building lightning fast Java applications using Redis, Spring Data and Spring Session
-In this hands-on lab you will learn how to build lightning fast Java applications using Redis and some of its datastructures and modules, together with Spring Data and Spring Session. You will learn how easy it is to build extremely fast applications using only a minimum of code. The entire hands-on lab is self-service and is made up of several exercises. Each exercise comes with a working solution, so feel free to take a peek in case you get stuck!
+In this hands-on lab you will learn how to build lightning fast Java applications using Redis and some of its datastructures and modules. You will learn how easy it is to build extremely fast applications using only a minimum of code. The entire hands-on lab is self-service and is made up of several exercises. Each exercise comes with a working solution, so feel free to take a peek in case you get stuck!
 
 
 The hands-on lab is hosted remotely via [Gitpod](https://gitpod.io/).
@@ -11,7 +11,6 @@ The hands-on lab is hosted remotely via [Gitpod](https://gitpod.io/).
 * A laptop/desktop equipped with a modern browser
 * A working internet connection (use corporate proxies or bad WiFi at your own peril)
 * Click the 'Open in Gitpod' button in the `Getting Started` section to spin up the hands-on lab on Gitpod (Github/GitLab or Atlassian account required)
-redis-spring-data-handsonlab)
 * The Gitpod instance will setup all required dependencies for you, including an IDE, no need to install anything!
 
 If you don't like Gitpod, you can also clone the repo and work locally. In that case [JDK 16 or higher](https://adoptopenjdk.net/?variant=openjdk16&jvmVariant=hotspot) is required, along with [Docker](https://www.docker.com/products/docker-desktop) and an IDE, e.g. [vscode](https://code.visualstudio.com/), [idea](https://www.jetbrains.com/idea/), [eclipse](https://www.eclipse.org/eclipseide/) or [netbeans](https://netbeans.apache.org/)
@@ -23,7 +22,7 @@ We expect you to be somewhat familiar with Java but if you're not: don't worry, 
 ## Getting started
 Use the button below to create a Gitpod instance and run this hands-on lab. This hands-on lab consists of multiple exercises, see the links below. Each exercise has a goal and a set of sub goals to achieve. A working solution is also provided as well as several hints in case you get stuck. Start with exercise 1 and work your way from there. Good luck and enjoy!
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Redislabs-Solution-Architects/redis-spring-data-handsonlab)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ruurdk/redis-dev-handsonlab)
 
 ## Exercises
 
