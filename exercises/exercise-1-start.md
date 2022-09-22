@@ -10,13 +10,13 @@ Hello and thank you for joining this hands-on lab! We're happy to have you join,
 
 ## Exercise
 ### Starting Redis and opening the CLI
-* Open a terminal Window and start a Redis server by using the following command:
+* Open a terminal Window and start a Redis by using the following command:
 ```
-docker run -p 6379:6379 redis/redis-stack-server:latest
+docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack-server:latest
 ```
-* In a second terminal Window, open the Redis CLI by typing:
+* In a second terminal Window, open the Redis CLI (from the Docker image) by typing:
 ```
-redis-cli
+docker exec -it redis-stack redis-cli
 ```
 
 By default, the Redis CLI will connect to 127.0.0.1 and port 6379. If you want to use a different hostname and port, you can use the `-h` and `-p` options to specify a diferent hostname and port.

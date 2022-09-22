@@ -3,17 +3,17 @@ tasks:
   - name: Dependencies
     init: |
       sdk install java 18-amzn < /dev/null
-      docker pull redis/redis-stack-server:latest
+      docker pull redis/redis-stack:latest
       gp open README.md
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
   - port: 6379
+  - port: 8001
   - port: 8080
     onOpen: open-preview
 vscode:
   extensions:
     - vscjava.vscode-java-pack
-    - pivotal.vscode-spring-boot
     - gabrielbb.vscode-lombok
     - vscjava.vscode-java-debug
     - vscjava.vscode-java-dependency
