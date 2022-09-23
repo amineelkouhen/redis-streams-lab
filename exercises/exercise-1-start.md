@@ -1,7 +1,7 @@
 <img src="../img/redis-logo-full-color-rgb.png" height=100/>
 
 # Exercise 1 - Introduction to Redis
-Hello and thank you for joining this hands-on lab! We're happy to have you join, so welcome! This first exercise aims to show you what Redis is, how it can be interacted with and gives a tour of some of the available data types, data structures and modules. This should provide you with the core knowledge that you will need to start building an application with Redis/Spring later on in this hands-on lab. So, without further delay, let's get started!
+Hello and thank you for joining this hands-on lab! We're happy to have you join, so welcome! This first exercise aims to show you what core Redis is, how it can be interacted with and gives a tour of some of the available core data types. 
 
 ## Goals
 

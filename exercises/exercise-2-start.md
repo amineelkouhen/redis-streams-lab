@@ -2,8 +2,8 @@
 
 # Exercise 2 - RedisInsight
 
-In the previous exercise, we started Redis and worked with some basic data types via the redis-cli. This works well but is pretty hardcore. For development purposes, the Docker image we started also hosts the RedisInsight tool which offers a much improved user experience.
-In this exercise, we'll discover RedisInsight.
+In the previous exercise, we started core Redis - or Redis Open Source (OSS) and worked with some basic data types via the redis-cli. This works well but is pretty hardcore. For development purposes, the Docker image we started also hosts the RedisInsight tool which offers a much improved user experience.
+In this exercise, we'll discover this tool.
 
 ### Opening RedisInsight
 
@@ -28,4 +28,4 @@ For the next exercises, we'll use this Workbench for interacting with Redis.
 
 ## Next steps
 
-Well done, you made it through the first exercise! Take a short break if you want, and then move on to [exercise 3](exercise-3-start.md).
+Well done, you made it through the second exercise! Take a short break if you want, and then move on to [exercise 3](exercise-3-start.md).

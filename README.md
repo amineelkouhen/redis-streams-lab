@@ -26,9 +26,11 @@ Use the button below to create a Gitpod instance and run this hands-on lab. This
 
 ## Exercises
 
-* Exercise 1 - Introduction to Redis: [start](exercises/exercise-1-start.md)
-* Exercise 2 - Introducing RedisInsight: [start](exercises/exercise-2-start.md)
-* Exercise 3 - Advanced datatypes (modules): [start](exercises/exercise-3-start.md)
+* Exercise 1 - Introduction to Redis (CLI and core data types): [start](exercises/exercise-1-start.md)
+* Exercise 2 - Introducing RedisInsight (GUI): [start](exercises/exercise-2-start.md)
+* Exercise 3 - Introduction to modules (RediSearch): [start](exercises/exercise-3-start.md)
+* Exercise 4 - Advanced data models (TimeSeries, JSON): [start](exercises/exercise-4-start.md)
+* Exercise 5 - Java client libraries (lettuce): [start](exercises/exercise-5-start.md)
 
 
 ## Tips
