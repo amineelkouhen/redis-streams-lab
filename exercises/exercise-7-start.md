@@ -4,7 +4,15 @@
 
 ## Running the code
 
+Assuming you still have Redis running in GitPod, all we have to do is compile the app and run it.
+
+From the *exercise7-start* folder in the terminal window:
+
 ## Tasks
+
+## Tips
+
+You will find a complete working application including all the steps above in the *exercise7-solution* folder. However, try not to look at the solution before you tried to get it working yourselves.
 
 ## Next steps
 
