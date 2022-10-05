@@ -20,4 +20,4 @@ vscode:
     - vscjava.vscode-maven
     - vscjava.vscode-java-test
 gitConfig:
-  submodule.recurse: true
+  submodule.recurse: 1
