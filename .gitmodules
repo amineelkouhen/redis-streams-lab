@@ -3,10 +3,6 @@
 	path = exercises/exercise5-solution
 	url = https://github.com/ruurdk/redis-lettuce-demo
 	branch = main
-[submodule "exercises/exercise5-start"]
-	path = exercises/exercise5-start
-	url = https://github.com/ruurdk/redis-lettuce-demo
-	branch = mainstart
 [submodule "exercises/exercise7-start"]
 	path = exercises/exercise7-start
 	url = https://github.com/ruurdk/redisbank
