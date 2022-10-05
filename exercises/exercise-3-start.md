@@ -41,4 +41,4 @@ And that's not all of the module's functionality; there's plenty more, so if you
 
 ## Next steps
 
-Well done, you made it through the third exercise! Take a short break if you want, and then move on to [exercise 4](exercise-4-start.md).
+Well done, you made it through the third exercise! You can move on to [exercise 4](exercise-4-start.md) directly.
