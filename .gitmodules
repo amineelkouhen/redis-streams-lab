@@ -15,3 +15,11 @@
 	path = exercises/exercise5-start
 	url = https://github.com/ruurdk/redis-lettuce-demo
 	branch = mainstart
+[submodule "exercises/exercise6-start"]
+	path = exercises/exercise6-start
+	url = https://github.com/ruurdk/redisbankplaces
+	branch = masterstart
+[submodule "exercises/exercise6-solution"]
+	path = exercises/exercise6-solution
+	url = https://github.com/ruurdk/redisbankplaces
+	branch = master
