@@ -2,14 +2,16 @@
 [submodule "exercises/exercise5-solution"]
 	path = exercises/exercise5-solution
 	url = https://github.com/ruurdk/redis-lettuce-demo
+	branch = main
 [submodule "exercises/exercise5-start"]
 	path = exercises/exercise5-start
 	url = https://github.com/ruurdk/redis-lettuce-demo
-[submodule "exercises/exercise6-start"]
-	path = exercises/exercise6-start
+	branch = mainstart
+[submodule "exercises/exercise7-start"]
+	path = exercises/exercise7-start
 	url = https://github.com/ruurdk/redisbank
-	branch = basic
-[submodule "exercises/exercise6-solution"]
-	path = exercises/exercise6-solution
+	branch = basicstart
+[submodule "exercises/exercise7-solution"]
+	path = exercises/exercise7-solution
 	url = https://github.com/ruurdk/redisbank
 	branch = basic
