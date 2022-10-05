@@ -12,10 +12,14 @@ Let's get started!
 
 Assuming you still have Redis running in GitPod, all we have to do is compile the app and run it.
 
-From the [starting point](exercise5-start/) folder in the terminal window:
+From the *exercise5-start* folder in the terminal window:
 
-`./mvnw clean package assembly:assembly` to build the code
-`java -cp target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar com.redis.lars.App` to run the app
+- `./mvnw clean package assembly:assembly` to build the code
+- `java -cp target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar com.redis.lars.App` to run the app
+
+Make sure you read the terminal output. What does it say?
+
+## Tasks
 
 After this exercise you will have a running app with the scaffolding in place to interact with Redis. But making it do cool stuff is up to you. What we are looking for is for you to:
 
@@ -28,7 +32,7 @@ After this exercise you will have a running app with the scaffolding in place to
 
 ## Tips
 
-You will find a complete working application including all the steps above [here](exercise5-solution/). However, try not to look at the solution before you tried to get it working yourselves.
+You will find a complete working application including all the steps above in the *exercise5-solution* folder. However, try not to look at the solution before you tried to get it working yourselves.
 
 ## Next steps
 
