@@ -12,7 +12,7 @@ Let's get started!
 
 Assuming you still have Redis running in GitPod, all we have to do is compile the app and run it.
 
-From the exercise5 folder in the terminal window:
+From the [starting point](exercise5-start/) folder in the terminal window:
 
 `./mvnw clean package assembly:assembly` to build the code
 `java -cp target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar com.redis.lars.App` to run the app
@@ -25,6 +25,10 @@ After this exercise you will have a running app with the scaffolding in place to
 4. Store and retrieve a collection of RedisTimeSeries values
 5. Create an index on the hash data structure and phonetic search ("Try searching for something that sounds like 'world' but type it differently, e.g. 'wurld')
 6. Use full-text search with highlighting
+
+## Tips
+
+You will find a complete working application including all the steps above [here](exercise5-solution/). However, try not to look at the solution before you tried to get it working yourselves.
 
 ## Next steps
 

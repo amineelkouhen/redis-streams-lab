@@ -27,11 +27,12 @@ Use the button below to create a Gitpod instance and run this hands-on lab. This
 ## Exercises
 
 * Exercise 1 - Introduction to Redis (CLI and core data types): [start](exercises/exercise-1-start.md)
-* Exercise 2 - Introducing RedisInsight (GUI): [start](exercises/exercise-2-start.md)
+* Exercise 2 - GUI: meet RedisInsight: [start](exercises/exercise-2-start.md)
 * Exercise 3 - Introduction to modules (RediSearch): [start](exercises/exercise-3-start.md)
 * Exercise 4 - Advanced data models (TimeSeries, JSON): [start](exercises/exercise-4-start.md)
-* Exercise 5 - Java client libraries (lettuce): [start](exercises/exercise-5-start.md)
-
+* Exercise 5 - Coding: Redis with Java/lettuce: [start](exercises/exercise-5-start.md)
+* Exercise 6 - Coding: Redis caching with Java/Jedis: [start](exercises/exercise-6-start.md)
+* Exercise 7 - Coding: Real-time data in action in a complete app: [start](exercises/exercise-7-start.md)
 
 ## Tips
 
