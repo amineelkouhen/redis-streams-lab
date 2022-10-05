@@ -1,6 +1,1 @@
-[submodule "exercises/exercise5-solution"]
-	path = exercises/exercise5-solution
-	url = git@github.com:NLxAROSA/redis-lettuce-demo
-[submodule "exercises/exercise5-start"]
-	path = exercises/exercise5-start
-	url = git@github.com:NLxAROSA/redis-lettuce-demo
+
