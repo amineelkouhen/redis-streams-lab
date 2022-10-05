@@ -4,11 +4,20 @@
 
 In this exercise we will meet 'the other Redis client' for Java: Jedis, and use it to cache data retrieved from an external API for ultra fast lookups.
 
+As with the previous exercise, the application we'll build is super light-weight without relying much on higher-level abstraction frameworks such as Spring, Quarkus, JakartaEE or others. We do use Spring Boot for starting a webserver, but other than that the only dependency is jedis. 
+
+Let's get started!
+
 ## Running the code
 
 Assuming you still have Redis running in GitPod, all we have to do is compile the app and run it.
 
 From the *exercise6-start* folder in the terminal window:
+
+- `./mvnw -f pom.xml clean package` to build the code
+- `java -jar target/redisbankplaces-0.0.1-SNAPSHOT-jar --spring.profiles.active=prod` to run the app
+
+This app hosts a website at port 8080. Try to connect to it. What do you see?
 
 ## Tasks
 
