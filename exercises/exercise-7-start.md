@@ -25,7 +25,7 @@ In this workshop version of the code:
 (You may want to check the more complex version of the application in the upstream if you are familiar with Spring Data and Srping Data Repository)
 
 # Architecture
-<img src="architecture.png"/>
+<img src="exercise7-start/architecture.png"/>
 
 ## Running the code
 
