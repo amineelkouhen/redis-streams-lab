@@ -22,10 +22,10 @@ In this workshop version of the code:
 > - The application is using the Spring framework in a very basic way only for the web/REST API and for running as standalone executable jar
 > - The codebase is using plain Lettuce API for Redis.
 > - The data model for BankTransaction is JSON with RedisJSON (instead of basic Redis Hashes)
-(You may want to check the more complex version of the application in the upstream if you are familiar with Spring Data and Srping Data Repository)
+(You may want to check the more complex version of the application in the upstream if you are familiar with Spring Data and Spring Data Repository)
 
 # Architecture
-<img src="exercise7-start/architecture.png"/>
+<img src="../img/architecture.png"/>
 
 ## Running the code
 
