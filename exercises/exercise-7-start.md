@@ -65,12 +65,12 @@ If all is well, if you navigate to http://localhost:8080 and log in using `lars/
 
 
 ```java
-        RediSearchCommands<String, String> commands = srsc.sync();
+RediSearchCommands<String, String> commands = srsc.sync();
 
-        // optional options
-        SearchOptions options = SearchOptions.builder().build();
+// optional options
+SearchOptions options = SearchOptions.builder().build();
 
-        results = commands.search(BankTransactionGenerator.SEARCH_INDEX, term, options);
+results = commands.search(BankTransactionGenerator.SEARCH_INDEX, term, options);
 ```
 
 There are quite a few things going on here but what does this all mean? The first statement opens a RediSearch connection using the RediSearch client library (already on the classpath). The second one creates SearchOptions, based on our preferences. Check out `BankTransactionGenerator.SEARCH_INDEX` to see how we're searching the description, transactionType and fromAccountName fields of the `BankTransaction`. 
@@ -110,6 +110,32 @@ What we're doing here is asking "Give us the time series values stored under the
 
 * Build and run the app and see the balance over time populated. Also notice how it updates with each incoming transaction.
 
+### Adding the 'biggest spenders' feature to the app
+
+Now, last, but certainly not least, let's add the 'biggest spenders' functionality. This will show the biggest deductors from your bank account, in other words: 'where is my money going?' For this purpose, the data-generation is populating a Sorted Set. For every transaction it will add the value of the transaction to a member to the sorted set of which the key is the counter-account's name and the value is the total amount of the transactions for that account. That means that the set is ordered by the total amount of transactions for that account, so we can show the 'biggest spenders' on our account, or 'where is my money going?'!
+
+* Stop the app.
+* In the `biggestSpenders()` method, add the following code:
+
+```java
+Set<TypedTuple<String>> range = redis.opsForZSet().rangeByScoreWithScores(SORTED_SET_KEY, 0, Double.MAX_VALUE);
+if (range.size() > 0) {
+    BiggestSpenders biggestSpenders = new BiggestSpenders(range.size());
+    int i = 0;
+    for (TypedTuple<String> typedTuple : range) {
+        biggestSpenders.getSeries()[i] = Math.floor(typedTuple.getScore() * 100) / 100;
+        biggestSpenders.getLabels()[i] = typedTuple.getValue();
+        i++;
+    }
+    return biggestSpenders;
+} else {
+    return new BiggestSpenders(0);
+}
+```
+
+This will retrieve the members of the Sorted Set by their scores from 0 up to `Double.MAX_VALUE`. We then put the result in a `BiggestSpenders` object (which is suitable for the UI component to display).
+
+* Build and run the app, and watch in awe as the biggest spenders are now shown in the app!
 
 
 ## Tips
