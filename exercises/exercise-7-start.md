@@ -138,9 +138,6 @@ This will retrieve the members of the Sorted Set by their scores from 0 up to `D
 * Build and run the app, and watch in awe as the biggest spenders are now shown in the app!
 
 
-## Tips
-
-You will find a complete working application including all the steps above in the *exercise7-solution* folder. However, try not to look at the solution before you tried to get it working yourselves.
 
 # Interesting code to explore
 
