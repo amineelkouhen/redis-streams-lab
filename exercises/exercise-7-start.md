@@ -82,6 +82,34 @@ The third statement executes the search and returns the results.
 * Now enter the letters `BMW` in the search box and see what happens. Notice how it selects all transactions with the word `BMW` in the Name field.
 * Play around with the search a bit more if you want or move on to the next part.
 
+### Adding the balance over time view
+
+Now that we've got the search and the transaction overview working, let's do the balance over time view. The data generation also populates a TimeSeries for the bank accounts balance, updating the TimeSeries every time there is a new transaction. We can query this TimeSeries and pass the result to the UI so it can show the balance over time in a nice visual diagram. Let's get started:
+
+* Stop the app.
+* In the `TransactionOverviewController` class in the `balance(Principal principal)` method, add the following:
+
+```java
+List<Sample> tsValues = srsc.sync().range(BALANCE_TS,
+        TimeRange.from(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 7))
+                .to(System.currentTimeMillis()).build());
+Balance[] balanceTs = new Balance[tsValues.size()];
+int i = 0;
+
+for (Sample entry : tsValues) {
+    Object keyString = entry.getTimestamp();
+    Object valueString = entry.getValue();
+    balanceTs[i] = new Balance(keyString, valueString);
+    i++;
+}
+
+return balanceTs;
+```
+
+What we're doing here is asking "Give us the time series values stored under the key of BALANCE_TS between now and (now -1 week)". We then copy the results into a `Balance` array (the UI requests the data in this format for display) and return it. 
+
+* Build and run the app and see the balance over time populated. Also notice how it updates with each incoming transaction.
+
 
 
 ## Tips
