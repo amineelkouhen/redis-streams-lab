@@ -13,10 +13,12 @@ You can view a picture of the overall architecture [over here](../img/architectu
 
 ## Getting started
 
-Assuming you still have Redis running in GitPod, all we have to do is compile the app and run it.
+Assuming you still have Redis running in GitPod, we have to tell the app we're running in GitPod, compile the app and run it.
 
 From the *exercise7-start* folder in the terminal window:
 
+
+- `export spring_profile_active=gitpod` 
 - `./mvnw clean package` 
 - `./mvnw spring-boot:run` to build and run the app
 
