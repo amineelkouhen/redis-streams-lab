@@ -43,6 +43,17 @@ This app hosts a website at port 8080. Try to connect to it, and pass the login 
 
 You will find a complete working application including all the steps above in the *exercise7-solution* folder. However, try not to look at the solution before you tried to get it working yourselves.
 
+# Interesting code to explore
+
+- [BankTransaction](https://github.com/ruurdk/redisbank/blob/basic/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransaction.java) is a plain POJO
+- Stored in Redis using RedisJSON Lettuce [redis.jsonSet](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionForwarder.java#L65)  
+- With an index in RediSearch [BankTransactionGenerator](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionGenerator.java#L87)
+- and with RediSearch query thru a REST/JSON api [TransactionOverviewController](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/TransactionOverviewController.java#L99)
+
+and also
+- biggest spenders categories using Redis sorted set [redis.incrementScore](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionGenerator.java#L162)
+- accessed using a Redis sorted set range [redis.rangeByScoreWithScores](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/TransactionOverviewController.java#L81)
+
 ## Next steps
 
 Congrats! You made it to the end of our workshop.
