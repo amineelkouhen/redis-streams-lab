@@ -21,6 +21,16 @@ This app hosts a website at port 8080. Try to connect to it. What do you see?
 
 ## Tasks
 
+The application presents a list of branch offices of a bank - served from Redis. Each office can also be presented on a map to get an easy overview of how to visit them.
+
+The map uses geo locations (longitude and latitude), which are dynamically retrieved from the OpenStreetMapAPI.
+
+Hitting a slow back-end system such as an external API has impacts on latency, so the page is slow in presenting the map.
+
+1. Somehow the caching of the geolocations isn't working. Make sure after every lookup of the location, the result is cached for 1 minute.
+What is the typical speedup you get in the lookup?
+2. *(Optional)* The branch office places are populated by the /api/places endpoint. The data is returned by a SCAN over the Places keyspace in Redis. Refactor this to use RediSearch instead, and query for Amsterdam offices. 
+
 ## Tips
 
 You will find a complete working application including all the steps above in the *exercise6-solution* folder. However, try not to look at the solution before you tried to get it working yourselves.
