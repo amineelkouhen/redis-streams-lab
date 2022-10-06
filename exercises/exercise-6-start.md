@@ -2,7 +2,7 @@
 
 # Exercise 6 - Redis caching use case with Java/Jedis
 
-In this exercise we will meet 'the other Redis client' for Java: Jedis, and use it to cache data retrieved from an external API for ultra fast lookups.
+In this exercise we will meet 'the other Redis client' for Java: [Jedis](https://www.baeldung.com/jedis-java-redis-client-library), and use it to cache data retrieved from an external API for ultra fast lookups.
 
 As with the previous exercise, the application we'll build is super light-weight without relying much on higher-level abstraction frameworks such as Spring, Quarkus, JakartaEE or others. We do use Spring Boot for starting a webserver, but other than that the only dependency is jedis. 
 

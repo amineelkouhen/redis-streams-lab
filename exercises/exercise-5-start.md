@@ -2,7 +2,7 @@
 
 # Exercise 5 - Redis with Java/Lettuce
 
-We're finally going to look at how we can programmatically work with Redis. In this case we'll use Java leveraging the Lettuce client to interact with Redis core data structures, RediSearch and TimeSeries.
+We're finally going to look at how we can programmatically work with Redis. In this case we'll use Java leveraging the [Lettuce client](https://lettuce.io/) to interact with Redis core data structures, RediSearch and TimeSeries.
 
 The application we'll build is super light-weight without relying on higher-level abstraction frameworks such as Spring, Quarkus, JakartaEE or others. The only dependency is lettuce-core.
 

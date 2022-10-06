@@ -22,9 +22,10 @@ Can you find out what the minimum Key Size in Redis is?
 Now set the TTL of the 'hello' string key to 5. Wait a while. Now try to edit the key again. What just happened?
 
 While the GUI is convenient, it may be necessary to enter commands directly. We got you covered there: to enter commands, you can click the 'CLI' icon on the bottom left. Try to edit a key now.
-But RedisInsight provides a more advanced CLI as well: click on the 'Workbench' tab on the very left (below the Browser tab you are in now).
 
-For the next exercises, we'll use this Workbench for interacting with Redis.
+But RedisInsight provides a more advanced CLI and tutorial as well: click on the 'Workbench' tab on the very left (below the Browser tab you are in now).
+
+For the next exercises, we'll use the CLI for interacting with Redis.
 
 ## Next steps
 

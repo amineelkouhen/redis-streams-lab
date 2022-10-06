@@ -51,7 +51,7 @@ Under RedisJSON, a key can contain any valid JSON value. It can be scalar, objec
 
 * Here you will use JSON.SET to set the JSON scalar value to “Hello JSON!” Scalar will contain a string that holds “Hello JSON!”
 ```
-JSON.SET greetings . ' "Hello JSON!" ''
+JSON.SET greetings . ' "Hello JSON!" '
 ```
 
 * Use JSON.GET to return the value at path in JSON serialized form:
@@ -74,7 +74,7 @@ Let’s look at a JSON object example. A JSON object contains data in the form o
 
 * Let's try to insert JSON data into Redis:
 ```
-JSON.SET employee_profile $ '{ "employee": { "name": "alpha", "age": 40,"married": true }  } '
+JSON.SET employee_profile . '{ "employee": { "name": "alpha", "age": 40,"married": true }  } '
 ```
 * And to read it again:
 ```

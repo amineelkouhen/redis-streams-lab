@@ -31,7 +31,7 @@ This is great if your users need to search for something, but may not be able to
 ```
 ft.search my_idx "world" highlight
 ```
-Notice how the word `world` has no been surrounded by ```<b></b>``` tags. This is great in case we want to visually display the matching words differently in our UI. We can also change the tags by doing the following:
+Notice how the word `world` has now been surrounded by ```<b></b>``` tags. This is great in case we want to visually display the matching words differently in our UI. We can also change the tags by doing the following:
 ```
 ft.search my_idx "world" highlight tags <hello> </hello>
 ```
