@@ -5,7 +5,7 @@
 In this exercise we will put everything that we've learned together as well as adding a few more interesting features. We'll be building a real application this time so let's get started! For this part we've provided you with a basic scaffolding application with a fully functional front-end which can be found [over here](exercise7-start/). This will be the starting point for this exercise. You will be building the backend to make the whole application fully functional. We also provided a separate app for test data generation that can be found [over here](exercise7-datageneration) Last, but not least, you can find a fully working solution [over here](exercise7-solution).
 
 ## Architecture
-Data generation app -> Generates bank transactions and puts them on a Redis Stream. It also populates a RediSearch index and creates a TimeSeries for the account balance and a Sorted Set for the 'biggest spenders' on the account. The transactions Stream is stored under a key called `transactions_lars` (as `lars` is the only user in the app at the moment), the TimeSeries under a key called `balance_ts_lars`, the Sorted Set under a key called `bigspenders_lars` and the search indices under a general key. 
+Data generation app -> Generates bank transactions and puts them on a Redis Stream. It also populates a RediSearch index and creates a TimeSeries for the account balance and a Sorted Set for the 'biggest spenders' on the account. The transactions Stream is stored under a key called `transactions`, the TimeSeries under a key called `balance_ts`, the Sorted Set under a key called `bigspenders` and the search indices under a general key. 
 
 The app that we're going to be working on will consume these data structures and show them in a UI (which has been provided).
 
@@ -87,7 +87,7 @@ The third statement executes the search and returns the results.
 Now that we've got the search and the transaction overview working, let's do the balance over time view. The data generation also populates a TimeSeries for the bank accounts balance, updating the TimeSeries every time there is a new transaction. We can query this TimeSeries and pass the result to the UI so it can show the balance over time in a nice visual diagram. Let's get started:
 
 * Stop the app.
-* In the `TransactionOverviewController` class in the `balance(Principal principal)` method, add the following:
+* In the `TransactionOverviewController` class in the `balance()` method, add the following:
 
 ```java
 List<Sample> tsValues = srsc.sync().range(BALANCE_TS,
