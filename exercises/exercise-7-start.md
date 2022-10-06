@@ -137,18 +137,50 @@ This will retrieve the members of the Sorted Set by their scores from 0 up to `D
 
 * Build and run the app, and watch in awe as the biggest spenders are now shown in the app!
 
+## What's happening in Redis?
 
+Let's take a look at what's happening in Redis while we did this. First we'll take a look at what the data generation is populating. Let's use the Redis CLI to check out what's going on under the hood.
 
-# Interesting code to explore
+### Redis Stream
 
-- [BankTransaction](https://github.com/ruurdk/redisbank/blob/basic/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransaction.java) is a plain POJO
-- Stored in Redis using RedisJSON Lettuce [redis.jsonSet](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionForwarder.java#L65)  
-- With an index in RediSearch [BankTransactionGenerator](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionGenerator.java#L87)
-- and with RediSearch query thru a REST/JSON api [TransactionOverviewController](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/TransactionOverviewController.java#L99)
+The data generation app generates a bank transaction every 10 seconds or so and puts in on a Stream. You can query the stream using:
 
-and also
-- biggest spenders categories using Redis sorted set [redis.incrementScore](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionGenerator.java#L162)
-- accessed using a Redis sorted set range [redis.rangeByScoreWithScores](https://github.com/ruurdk/redisbank/blob/442905b1c47bf045a12f288d4af932740e5a0b51/src/main/java/com/redislabs/demos/redisbank/transactions/TransactionOverviewController.java#L81)
+```
+xread count 10000 streams transactions 0-0
+```
+
+This will give all of the entries on the `transactions` Stream (assuming you have less than 10000 items of course). Remember that our app subscribed to this Stream via Spring Data, so every time a new element is added to the Stream it's being processed by our app and sent to the UI.
+
+### Sorted Set
+
+The data generation app also adds every transaction to a Sorted Set. It's adding the transaction amount to the score, and the key of the member of the set is the name of the account. So it adds up all the transaction amounts per account name and stores this in a Sorted Set. So we can get the biggest spenders out by simply querying the Sorted Set like this:
+
+```
+zrangebyscore bigspenders 0 10000 withscores
+```
+
+### TimeSeries
+
+The data generation app also adds the bank accounts balance to a TimeSeries every time there is a new transaction being generated. This allows us to view the balance over time using a query such as:
+
+```
+ts.range balance_ts 1623000000000 1653230682038 (use appropriate timestamps or it will return an empty array)
+```
+
+In the example we don't do any of the advanced features like compacting or aggregation, but feel free to take a look at the [documentation](https://oss.redis.com/redistimeseries/) to learn more about those topics.
+
+### Hashes
+
+To be able to search transactions, each transaction is also stored as JSON in Redis (in the RedisBank:BankTransaction keyspace), so it can be indexed by RediSearch so we can search them, e.g. like:
+
+```
+ft.search transaction_description_idx Fuel
+```
+
+### Session data
+
+Last, but not least, session data is also stored in Redis. This required no code from our end whatsoever, adding the dependencies is enough.
+
 
 ## Next steps
 
