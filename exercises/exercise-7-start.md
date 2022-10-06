@@ -2,42 +2,62 @@
 
 # Exercise 7 - real-time data in action in a complete app: RedisBank
 
-This application uses **Redis Stack** combining Redis core data structures, Streams, RediSearch and TimeSeries to build a
-Java/Spring Boot/Lettuce application that shows a searchable transaction overview with realtime updates
-as well as a personal finance management overview with realtime balance and biggest spenders updates. UI in Bootstrap/CSS/Vue.
+In this exercise we will put everything that we've learned together as well as adding a few more interesting features. We'll be building a real application this time so let's get started! For this part we've provided you with a basic scaffolding application with a fully functional front-end which can be found [over here](exercise7-start/). This will be the starting point for this exercise. You will be building the backend to make the whole application fully functional. We also provided a separate app for test data generation that can be found [over here](exercise7-datageneration) Last, but not least, you can find a fully working solution [over here](exercise7-solution).
 
-Features in **Redisbank**:
+## Architecture
+Data generation app -> Generates bank transactions and puts them on a Redis Stream. It also populates a RediSearch index and creates a TimeSeries for the account balance and a Sorted Set for the 'biggest spenders' on the account. The transactions Stream is stored under a key called `transactions_lars` (as `lars` is the only user in the app at the moment), the TimeSeries under a key called `balance_ts_lars`, the Sorted Set under a key called `bigspenders_lars` and the search indices under a general key. 
 
-- **Redis Streams** for the realtime transactions
-- **RedisJSON** for storing transactions
-- **Redis Sorted Sets** for the 'biggest spenders'
-- **RediSearch** for searching transactions
-- **Redis TimeSeries** for the balance over time
-- **Redis hashes** for http session storage via Spring Session
+The app that we're going to be working on will consume these data structures and show them in a UI (which has been provided).
 
-# Important note
+You can view a picture of the overall architecture [over here](../img/architecture.png).
 
-In this workshop version of the code:
-
-> - The application is using the Spring framework in a very basic way only for the web/REST API and for running as standalone executable jar
-> - The codebase is using plain Lettuce API for Redis.
-> - The data model for BankTransaction is JSON with RedisJSON (instead of basic Redis Hashes)
-(You may want to check the more complex version of the application in the upstream if you are familiar with Spring Data and Spring Data Repository)
-
-# Architecture
-<img src="../img/architecture.png"/>
-
-## Running the code
+## Getting started
 
 Assuming you still have Redis running in GitPod, all we have to do is compile the app and run it.
 
 From the *exercise7-start* folder in the terminal window:
 
+- `./mvnw clean package` 
 - `./mvnw spring-boot:run` to build and run the app
 
-This app hosts a website at port 8080. Try to connect to it, and pass the login page with user `lars` and password `larsje`
+This app hosts a website at port 8080. Try to connect to it, and pass the login page with user `lars` and password `larsje`. You should be able to login, but the following screen is still kind of empty. So let's stop the app for now, and then do something about that!
 
-## Tasks
+### Consuming a Redis Stream
+* Consume the transactions Stream
+
+A [Redis Stream](https://redis.io/topics/streams-intro) is an append-only log. The [data generator](https://github.com/ruurdk/redisbank/blob/basicstart/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionGenerator.java#117) will put transaction on the Stream, and our application will subscribe to this Stream and will consume any income transactions.
+
+The only thing we have to do now is store them as JSON in Redis and send them to the frontend over a Websocket connection. The magic happens in the [onMessage method](https://github.com/ruurdk/redisbank/blob/basicstart/src/main/java/com/redislabs/demos/redisbank/transactions/BankTransactionForwarder.java#L57)
+
+In here, include the code to do just that:
+```java
+try {
+    // if we need an object we could do this but we can use native String/JSON as well
+    // BankTransaction bankTransaction = SerializationUtil.deserializeObject(messageString, BankTransaction.class);
+    RedisJSONCommands<String, String> red = redismod.sync();
+    red.jsonSet("RedisBank:BankTransaction:"+ message.getId().getValue(),
+        ".", // JSON Path
+        messageString
+    );
+} catch (Exception e) {
+    LOGGER.error("Error parsing JSON: {}", e.getMessage());
+}
+
+// Stream message to websocket connection topic
+smso.convertAndSend(config.getStomp().getTransactionsTopic(), message.getValue());
+LOGGER.info("Websocket message: {}", messageString);
+```
+
+And that's it for this part. Now let's see how that looks in our application. Build and run our app:
+
+```
+./mvnw clean package
+./mvnw spring-boot-run
+```
+
+If all is well, if you navigate to http://localhost:8080 and log in using `lars/larsje`, you should now see an overview of transactions and a few not-yet functional bits (because we will be enabling those next!). If all is well you should see new transactions popping in every ten seconds or so. If not, check your source code and see if you missed any annotations or other parts. Next, let's add the search feature! 
+
+
 
 ## Tips
 
