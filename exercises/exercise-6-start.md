@@ -1,10 +1,30 @@
 <img src="../img/redis-logo-full-color-rgb.png" height=100/>
 
-# Exercise 6 - Redis caching use case with Java/Jedis
+# Exercise 6 - Redis caching use case with Java/Jedis: Redisbank Places
 
 In this exercise we will meet 'the other Redis client' for Java: [Jedis](https://www.baeldung.com/jedis-java-redis-client-library), and use it to cache data retrieved from an external API for ultra fast lookups.
 
-As with the previous exercise, the application we'll build is super light-weight without relying much on higher-level abstraction frameworks such as Spring, Quarkus, JakartaEE or others. We do use Spring Boot for starting a webserver, but other than that the only dependency is jedis. 
+This application uses **Redis Stack** with Redis core data structures (Hashes, Time to live expiry, Hashes scans) to build a
+Java/Spring Boot/Jedis application that loads a list of banking office addresses and uses a slow external API for geocoding
+purpose and display the office location on a map. 
+The 3rd party service is slow and might be rate limited or paid-for so is a scenario for using Redis as a cache to keep the geocoding information. 
+UI in Bootstrap/CSS/Vue.
+
+Features in **Redisbank Places**:
+
+- **Jedis** for simple Java API for Redis with pool support
+- **Redis Hashes** for simple object / key-value mapping and read/write/scans in Redis
+- **Redis TTL** for time to live expiry on any Redis key
+- **Redis counter** for atomic counter increments
+
+> - The application is using the Spring framework in a very basic way only for the web/REST API and for running as standalone executable jar
+> - The codebase is using plain Jedis API for Redis.
+
+# Architecture
+<img src="../img/architecture6.png"/>
+
+<img src="../img/redisbankplaces.png"/>
+
 
 Let's get started!
 

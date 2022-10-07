@@ -9,7 +9,7 @@ Data generation app -> Generates bank transactions and puts them on a Redis Stre
 
 The app that we're going to be working on will consume these data structures and show them in a UI (which has been provided).
 
-You can view a picture of the overall architecture [over here](../img/architecture.png).
+You can view a picture of the overall architecture [over here](../img/architecture7.png).
 
 ## Getting started
 
