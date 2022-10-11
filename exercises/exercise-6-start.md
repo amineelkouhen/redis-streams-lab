@@ -35,7 +35,7 @@ Assuming you still have Redis running in GitPod, all we have to do is compile th
 From the *exercise6-start* folder in the terminal window:
 
 - `./mvnw -f pom.xml clean package` to build the code
-- `java -jar target/redisbankplaces-0.0.1-SNAPSHOT-jar --spring.profiles.active=prod` to run the app
+- `java -jar target/redisbankplaces-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod` to run the app
 
 This app hosts a website at port 8080. Try to connect to it. What do you see?
 
