@@ -9,7 +9,7 @@ In this exercise, we'll discover this tool.
 
 The running redis-stack container already hosts the running RedisInsight application.
 
-You can open RedisInsight in your browser by typing <a href="http://localhost:8001/" target="_blank">http://localhost:8001</a> (as it is running on port 8001).
+You can open RedisInsight in your browser by typing [http://localhost:8001](http://localhost:8001) (as it is running on port 8001).
 
 Your browser should open a new tab and present you with a dialog asking for EULA and Privacy settings. If it doesn't it can be you have to open the url manually. Accept the recommended settings and the terms of use and Submit.
 
