@@ -9,19 +9,11 @@ The hands-on lab is hosted remotely via [Gitpod](https://gitpod.io/).
 
 * A laptop/desktop equipped with a modern browser
 * A working internet connection (use corporate proxies or bad WiFi at your own peril)
-* Click the 'Open in Gitpod' button in the `Getting Started` section to spin up the hands-on lab on Gitpod (Github/GitLab or Atlassian account required)
-* The Gitpod instance will setup all required dependencies for you, including an IDE, no need to install anything!
-
-If you don't like Gitpod, you can also clone the repo and work locally. In that case [Pyhton 3](https://www.python.org/download/releases/3.0/) is required, along with [Docker](https://www.docker.com/products/docker-desktop) and an IDE, e.g. [vscode](https://code.visualstudio.com/), [idea](https://www.jetbrains.com/idea/), [eclipse](https://www.eclipse.org/eclipseide/) or [netbeans](https://netbeans.apache.org/)
+* [Pyhton 3](https://www.python.org/download/releases/3.0/) is required, along with [Docker](https://www.docker.com/products/docker-desktop) and an IDE, e.g. [vscode](https://code.visualstudio.com/), [idea](https://www.jetbrains.com/idea/), [eclipse](https://www.eclipse.org/eclipseide/) or [netbeans](https://netbeans.apache.org/)
 
 ## Required knowledge
 
 We expect you to be somewhat familiar with Python but if you're not: don't worry, working source code is provided in this hands-on lab.
-
-## Getting started
-Use the button below to create a Gitpod instance and run this hands-on lab. This hands-on lab consists of multiple exercises, see the links below. Each exercise has a goal and a set of sub goals to achieve. Start with exercise 1 and work your way from there. Good luck and enjoy!
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#GITPOD=gitpod/https://github.com/ruurdk/redis-dev-handsonlab)
 
 ## Exercises
 
