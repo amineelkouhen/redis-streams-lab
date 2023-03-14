@@ -108,29 +108,6 @@ This piece of code is self-explainatory. It starts consuming the channel (queue 
 ./consumer.py [QUEUE_NAME]
 ```
 
-## Push it further
-
-If you want to push it further, you can implement a custom function that creates a consumer group with a few consumers that read the created stream :
-
-```python
-#!/usr/bin/env python3
-import sys
-import json
-import redis
-
-if len(sys.argv) != 2:
-   print("Usage: " + sys.argv[0] + " <queueName>")
-   sys.exit(1)
-
-queue = sys.argv[1]
-
-print("queue:\t%s" % (queue) )
-
-pool = redis.ConnectionPool(host='redis-12000.cluster.redis-process.demo.redislabs.com', port=12000)
-r = redis.Redis(connection_pool=pool)
-r.xreadgroup()
-```
-
 ## Next steps
 
 Great! We created our first app interacting with Redis through the python client (redis-py). In the next [exercise](exercise-6-start.md), we will try to persist our Redis streams in an AWS S3 bucket. 
