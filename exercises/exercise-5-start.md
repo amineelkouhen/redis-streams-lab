@@ -6,17 +6,6 @@ We're finally going to look at how we can programmatically work with Redis. In t
 
 Let's get started!
 
-## Running the code
-
-Assuming you still have Redis running in GitPod, all we have to do is compile the app and run it.
-
-From the *exercise5-start* folder in the terminal window:
-
-- `./mvnw clean package assembly:assembly` to build the code
-- `java -cp target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar com.redis.lars.App` to run the app
-
-Make sure you read the terminal output. What does it say?
-
 ## Goals
 
 After this exercise you will have a running app that consumes RabbitMQ messages and put store them as streams in Redis. The first piece of code consists of a RabbitMQ producer. The producer simulates sensors that send geographical coordinates and temperatures from different locations.
