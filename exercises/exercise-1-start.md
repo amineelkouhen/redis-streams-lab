@@ -60,8 +60,8 @@ XRANGE new-hires - + COUNT 2
 
 * Get the elements using XREVRANGE from newest to oldest
 ```
-XRANGE new-hires - +
-XRANGE new-hires - + COUNT 2
+XREVRANGE new-hires + -
+XREVRANGE new-hires + - COUNT 2
 ```
 
 Congratulations, you are now a Redis veteran! Of course, these are not the only two commands available for dealing with Streams in Redis. You can find out about all of the other commands for Streams (and all the other datatypes) by visiting the [Redis documentation](https://redis.io/commands/?group=stream)
