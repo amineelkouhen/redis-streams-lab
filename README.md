@@ -19,8 +19,8 @@ We expect you to be somewhat familiar with Python but if you're not: don't worry
 * Exercise 2 - GUI: meet RedisInsight: [start](exercises/exercise-2-start.md)
 * Exercise 3 - Managing Stream Length: [start](exercises/exercise-3-start.md)
 * Exercise 4 - Streams Consumer Groups: [start](exercises/exercise-4-start.md)
-* Exercise 5 - Coding: From a RabbitMQ queue to Redis Streams: [start](exercises/exercise-5-start.md)
-* Exercise 6 - Coding: Persist Redis Streams to AWS S3: [start](exercises/exercise-6-start.md)
+* Demo 1 - Coding: From a RabbitMQ queue to Redis Streams: [start](exercises/exercise-5-start.md)
+* Demo 2 - Coding: Persist Redis Streams to AWS S3: [start](exercises/exercise-6-start.md)
 
 ## Troubleshooting
 
