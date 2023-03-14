@@ -58,7 +58,7 @@ pip3 install pika
 pip3 install json
 ```
 
-* Run the [producer](scripts/producer.py) script with the following arguments:
+* Run the [producer](../scripts/producer.py) script with the following arguments:
 ```
 ./producer.py [QUEUE_NAME] [ITERATION]
 ```
@@ -103,7 +103,7 @@ except KeyboardInterrupt:
 ```
 This piece of code is self-explainatory. It starts consuming the channel (queue name is given as an argument) then, run a callback function for each message consumed in the queue. In the callback function, the XADD command is executed to create an entry in Redis with the RabbitMQ message payload.
 
-* Run the [consumer](scripts/consumer.py) script with the following arguments:
+* Run the [consumer](../scripts/consumer.py) script with the following arguments:
 ```
 ./consumer.py [QUEUE_NAME]
 ```
