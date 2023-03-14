@@ -1,6 +1,6 @@
 <img src="../img/redis-logo-full-color-rgb.png" height=100/>
 
-# Exercise 1 - Introduction to Redis
+# Exercise 1 - Streams Simple Add and Reads
 Hello and thank you for joining this hands-on lab! We're happy to have you join, so welcome! This first exercise aims to show you what is Redis Streams, how one can create and read events using it. 
 
 ## Goals
