@@ -2,7 +2,7 @@
 
 # Exercise 5 - Redis with redis-py
 
-We're finally going to look at how we can programmatically work with Redis. In this case we'll use Java leveraging the [redis-py client](https://github.com/redis/redis-py) to interact with Redis core data structures, and especially Streams.
+We're finally going to look at how we can programmatically work with Redis. In this case we'll use Python leveraging the [redis-py client](https://github.com/redis/redis-py) to interact with Redis core data structures, and especially Streams.
 
 Let's get started!
 
