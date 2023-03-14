@@ -2,7 +2,7 @@
 
 # Exercise 2 - RedisInsight
 
-In the previous exercise, we started core Redis - or Redis Open Source (OSS) and worked with some basic data types via the redis-cli. This works well but is pretty hardcore. For development purposes, the Docker image we started also hosts the RedisInsight tool which offers a much improved user experience.
+In the previous exercise, we started core Redis - or Redis Open Source (OSS) and worked with some basic stream commands via the redis-cli. This works well but is pretty hardcore. For development purposes, the Docker image we started also hosts the RedisInsight tool which offers a much improved user experience.
 In this exercise, we'll discover this tool.
 
 ### Opening RedisInsight
