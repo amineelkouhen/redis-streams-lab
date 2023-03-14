@@ -1,10 +1,8 @@
 <img src="../img/redis-logo-full-color-rgb.png" height=100/>
 
-# Exercise 5 - Redis with Java/Lettuce
+# Exercise 5 - Redis with redis-py
 
-We're finally going to look at how we can programmatically work with Redis. In this case we'll use Java leveraging the [Lettuce client](https://lettuce.io/) to interact with Redis core data structures, RediSearch and TimeSeries.
-
-The application we'll build is super light-weight without relying on higher-level abstraction frameworks such as Spring, Quarkus, JakartaEE or others. The only dependency is lettuce-core.
+We're finally going to look at how we can programmatically work with Redis. In this case we'll use Java leveraging the [redis-py client](https://github.com/redis/redis-py) to interact with Redis core data structures, and especially Streams.
 
 Let's get started!
 
@@ -21,19 +19,129 @@ Make sure you read the terminal output. What does it say?
 
 ## Goals
 
-After this exercise you will have a running app with the scaffolding in place to interact with Redis. But making it do cool stuff is up to you. What we are looking for is for you to:
+After this exercise you will have a running app that consumes RabbitMQ messages and put store them as streams in Redis. The first piece of code consists of a RabbitMQ producer. The producer simulates sensors that send geographical coordinates and temperatures from different locations.
 
-1. Store and retrieve a simple key/value pair. Tip: The retrieval is already in place. Leverage the StatefulRedisConnection to set the string key "hello" to "World".
-2. Store and retrieve a key/hash pair. Tip: The retrieval is already in place. Create a hash with key/values: Name/World, Description/Hello World, Purpose/42 and Thank/You.
-3. Use the Lettuce Commands interface to extend the supported command set outside of the Redis OSS command set. Tip: Explore the TimeSeriesCommands class on how to [decorate the methods](https://github.com/lettuce-io/lettuce-core/wiki/Redis-Command-Interfaces) to link to Redis queries.
-4. Store and retrieve a collection of RedisTimeSeries values. Tip: use the strongly typed TimeSeriesCommands instance tsc to create a timeseries and add values invoking the methods you decorated in the step above.
-5. Create an index on the hash data structure and phonetic search ("Try searching for something that sounds like 'world' but type it differently, e.g. 'wurld'). Tip: the RediSearchCommands class is ready to go. 
-6. Use full-text search with highlighting. Tip: extend the RediSearchCommands class with a searchWithHighlights method and decorate it accordingly.
+```python
+#!/usr/bin/env python3
+import pika
+import sys
+import json
+import random
 
-## More tips
+if len(sys.argv) != 3:
+   print("Usage: " + sys.argv[0] + " <queueName> <count>")
+   sys.exit(1)
 
-You will find a complete working application including all the steps above in the *exercise5-solution* folder. However, try not to look at the solution before you tried to get it working yourselves.
+queue  = sys.argv[1]
+count = int(sys.argv[2])
+
+print("count:\t%d\nqueue:\t%s" % (count, queue) )
+
+msgBody = {
+        "device_name" :  "device",
+        "temperature" : 0.0,
+        "latitude" : 0.0,
+        "longitude": 0.0
+        }
+
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+channel.queue_declare(queue = queue)
+
+properties = pika.BasicProperties(content_type='application/json', delivery_mode=1, priority=1, content_encoding='utf-8')
+for i in range(1, count):
+    msgBody["device_name"] = "device " + str(i)	
+    msgBody["temperature"] = round(random.uniform(-40, 56.7), 1)
+    msgBody["latitude"] = random.uniform(-90, 90)
+    msgBody["longitude"] = random.uniform(-180, 180)
+    jsonStr = json.dumps(msgBody)
+    properties.message_id = str(i)
+    channel.basic_publish(exchange = '', routing_key = queue, body = jsonStr, properties = properties)
+    print("Send\t%r" % msgBody)
+
+connection.close()
+print('Exiting')
+```
+
+To execute this code successfully, you need Python3 installed as well as json and pika packages.
+```
+pip3 install pika
+pip3 install json
+```
+
+* Run the [producer](script/producer.py) script with the following arguments:
+```
+./producer.py [QUEUE_NAME] [ITERATION]
+```
+
+In the other side, you need another script that consumes the RabbitMQ queue and creates entries in a Redis stream with having the same name as the queue. For this, you need to execute the following code :
+
+```python
+#!/usr/bin/env python3
+import pika
+import sys
+import json
+import redis
+
+if len(sys.argv) != 2:
+   print("Usage: " + sys.argv[0] + " <queueName>")
+   sys.exit(1)
+
+queue = sys.argv[1]
+
+print("queue:\t%s" % (queue) )
+
+pool = redis.ConnectionPool(host='redis-12000.cluster.redis-process.demo.redislabs.com', port=12000)
+r = redis.Redis(connection_pool=pool)
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+channel.queue_declare(queue = queue)
+
+def callback(ch, method, properties, body):
+    msgBody = json.loads(body)
+    r.xadd(queue, msgBody)
+    print("Receive\t%r" % msgBody)
+
+channel.basic_consume(queue = queue,
+                      auto_ack=True,
+                      on_message_callback=callback)
+
+print('Waiting for messages. To exit press CTRL+C')
+try:
+    channel.start_consuming()
+except KeyboardInterrupt:
+    print('Exiting')
+```
+This piece of code is self-explainatory. It starts consuming the channel (queue name is given as an argument) then, run a callback function for each message consumed in the queue. In the callback function, the XADD command is executed to create an entry in Redis with the RabbitMQ message payload.
+
+* Run the [consumer](script/consumer.py) script with the following arguments:
+```
+./consumer.py [QUEUE_NAME]
+```
+
+## Push it further
+
+If you want to push it further, you can implement a custom function that creates a consumer group with a few consumers that read the created stream :
+
+```python
+#!/usr/bin/env python3
+import sys
+import json
+import redis
+
+if len(sys.argv) != 2:
+   print("Usage: " + sys.argv[0] + " <queueName>")
+   sys.exit(1)
+
+queue = sys.argv[1]
+
+print("queue:\t%s" % (queue) )
+
+pool = redis.ConnectionPool(host='redis-12000.cluster.redis-process.demo.redislabs.com', port=12000)
+r = redis.Redis(connection_pool=pool)
+r.xreadgroup()
+```
 
 ## Next steps
 
-Great! We created our first app interacting with Redis through the Lettuce client. We'll dive some deeper on client choices and caching in the next [exercise](exercise-6-start.md). 
+Great! We created our first app interacting with Redis through the python client (redis-py). In the next [exercise](exercise-6-start.md), we will try to persist our Redis streams in an AWS S3 bucket. 
