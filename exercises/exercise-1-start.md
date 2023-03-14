@@ -30,7 +30,6 @@ XADD new-hires * name Amine start-date 2022-05-16
 * Add a few more new-hires:
 
 ```
-XADD new-hires * name Amine start-date 2022-05-16
 XADD new-hires * name François start-date 2017-02-08
 XADD new-hires * name Pierre start-date 2022-12-12
 XADD new-hires * name Yacine start-date 2022-12-05
