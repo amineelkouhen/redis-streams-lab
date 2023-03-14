@@ -24,7 +24,6 @@ XADD new-hires * name Luigi start-date 2021-07-01
 XADD new-hires * name Virgilio start-date 2022-10-10
 XADD new-hires * name Ruurd start-date 2022-03-14
 XADD new-hires * name Hannu start-date 2022-11-09
-
 XADD new-hires * name Greg start-date 2021-03-15
 XADD new-hires * name Allen start-date 2018-02-05
 XADD new-hires * name Tal start-date 2015-11-15
