@@ -3,8 +3,6 @@
 ## Redis Streams - Technical Lab
 In this hands-on lab you will learn how to create and manipulate Redis Streams. You will learn how easy it is to build extremely fast applications using only a minimum of code. The entire hands-on lab is self-service and is made up of several exercises.
 
-The hands-on lab is hosted remotely via [Gitpod](https://gitpod.io/).
-
 ## Prerequisites
 
 * A laptop/desktop equipped with a modern browser
