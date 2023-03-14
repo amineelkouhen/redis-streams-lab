@@ -14,3 +14,8 @@ In this exercise we will persist our working Redis database into a specific S3 b
 8. As soon as you validate this step, the target database is now identical to the source database. We have now our streams in another database.
 
 <img src="../img/backup.gif"/>
+
+## Next steps
+
+Congrats! You made it to the end of our workshop.
+By now you should have a solid overview of Redis Streams, ways to interact (CLI, GUI, and client options).
