@@ -35,7 +35,7 @@ XACK jobs worker-group 1-0 2-0
 
 * To see the pending entries in the consumer group you can use the XPENDING command. 
 ``` 
-
+XPENDING jobs worker-group
 ```
 This command can be used to identify which messages may have been read but not processed by a failed consumer. In this case, a working consumer can claim these pending messages. 
 
