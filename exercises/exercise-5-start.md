@@ -1,6 +1,6 @@
 <img src="../img/redis-logo-full-color-rgb.png" height=100/>
 
-# Demo 1 - Redis with redis-py
+# Demo 1 - From RabbitMQ to Redis Streams
 
 We're finally going to look at how we can programmatically work with Redis. In this case we'll use Python leveraging the [redis-py client](https://github.com/redis/redis-py) to interact with Redis core data structures, and especially Streams.
 
