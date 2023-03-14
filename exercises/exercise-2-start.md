@@ -15,11 +15,11 @@ Your browser should open a new tab and present you with a dialog asking for EULA
 
 ### Finding your way
 
-In the top left you should see a view on the Redis Stack database. If you continued from the previous exercise, you will find three keys. Guess which they are? Right: 'hello', 'myhash' and 'mysortedset'.
-Click on them to find their values displayed on the right.
-Can you find out what the minimum Key Size in Redis is? 
+In the top left you should see a view on the Redis Stack database. If you continued from the previous exercise, you will find one key... `new-hires`!
 
-Now set the TTL of the 'hello' string key to 5. Wait a while. Now try to edit the key again. What just happened?
+Click on it to find its content displayed on the right.
+
+Now set the TTL of the 'new-hires' stream key to 5. Wait a while. Now try to edit the key again. What just happened?
 
 While the GUI is convenient, it may be necessary to enter commands directly. We got you covered there: to enter commands, you can click the 'CLI' icon on the bottom left. Try to edit a key now.
 
