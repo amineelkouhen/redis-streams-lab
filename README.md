@@ -24,10 +24,6 @@ We expect you to be somewhat familiar with Python but if you're not: don't worry
 
 ## Troubleshooting
 
-### General
-
-If your laptop has corporate restrictions in terms of installing software, internet proxies or other restrictions, it might be tricky to get this hands-on lab up and running, even though we minimised the required dependencies by running this hands-on lab in the browser via Gitpod. Asking the instructor may help, but we can't guarantee we'll get it working and we won't help you circumvent corporate policies.
-
 ### Redis
 
 Make sure Redis is running when running the exercises. During building this is not required as the integration tests support [Testcontainers](https://www.testcontainers.org/).
