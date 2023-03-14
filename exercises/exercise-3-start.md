@@ -3,8 +3,8 @@
 # Exercise 3 - Managing Stream Length
 
 While Redis Streams can grow indefinitely when they are left unchecked, it's possible to cap a stream's length to an exact or approximate number either by:
-1 - A producer, when it adds an entry to the stream with XADD
-2 - Invoking the XTRIM command at any point.
+1- A producer, when it adds an entry to the stream with XADD
+2- Invoking the XTRIM command at any point.
 Both approaches remove the oldest entries from a stream.
 
 * Add to stream `new-hires` and includes the fields name and start-date for yourself
