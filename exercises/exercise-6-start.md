@@ -33,7 +33,7 @@ RIOT can implement processors to perform custom transformations to the ingested 
 
 It is possible to parallelize processing by using multiple threads using the `--threads` option. In that configuration, each chunk of items is read, processed, and written in a separate thread of execution. This is different from partitioning where items would be read by multiple readers (see Redis Data Integration). Here, only one reader is being accessed from multiple threads.
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEid0eb-406mXHGDy75wAAKQMkqbLw_ZLhGGj_Y0hZ-wmd0OhOAvCjzUE3FXVlfSZdzFa4yaShRkGyma43lxrklmrRqyudb2S77mebFC3p-pUsR7YNqw5yyPQf4T_5hT-uPey0tlX0hYrm7Sk99cd7jDsNaUqBV_PX69iG_TJidY_DuvgzXWz7mIcpDH){: .mx-auto.d-block :} *RIOT architecture*{:style="display:block; margin-left:auto; margin-right:auto; text-align: center"}
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEid0eb-406mXHGDy75wAAKQMkqbLw_ZLhGGj_Y0hZ-wmd0OhOAvCjzUE3FXVlfSZdzFa4yaShRkGyma43lxrklmrRqyudb2S77mebFC3p-pUsR7YNqw5yyPQf4T_5hT-uPey0tlX0hYrm7Sk99cd7jDsNaUqBV_PX69iG_TJidY_DuvgzXWz7mIcpDH)
     
 ## Flat files ingestion using RIOT-File  
 
