@@ -110,4 +110,4 @@ This piece of code is self-explainatory. It starts consuming the channel (queue 
 
 ## Next steps
 
-Great! We created our first app interacting with Redis through the python client (redis-py). In the next [exercise](exercise-6-start.md), we will try to persist our Redis streams in an AWS S3 bucket. 
+Great! We created our first app interacting with Redis through the python client (redis-py). In the next [exercise](exercise-6-start.md), we will try to ingest plain files into Redis streams. 
