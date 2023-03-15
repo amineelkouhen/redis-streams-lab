@@ -6,7 +6,7 @@ We're finally going to look at how we can programmatically work with Redis. In t
 
 Let's get started!
 
-## Install and deploy the broker
+## Install and deploy RabbitMQ broker
 From a terminal session, install the RabbitMQ broker. For a macOS environment, you can use homebrew :
 
 ```shell
