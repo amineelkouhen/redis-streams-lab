@@ -73,8 +73,7 @@ The following command imports that CSV file into a Redis Stream `airports`.
 ```
 riot-file -h localhost -p 6379 import https://raw.githubusercontent.com/aelkouhen/Geo-Maersk/master/geo_unlocode/airport.csv --header xadd --keyspace airports
 ``` 
-
-![RedisInsight](https://user-images.githubusercontent.com/105490765/225295847-eac5e463-d6d8-4dc1-83d8-65831b97a12c.png)
+<img width="1512" alt="RedisInsight" src="https://user-images.githubusercontent.com/105490765/225296763-b2bf0d78-259e-477a-991c-c457181d7503.png">
 
 ## Next steps
 
