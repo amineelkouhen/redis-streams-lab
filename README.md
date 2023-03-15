@@ -20,7 +20,7 @@ We expect you to be somewhat familiar with Python but if you're not: don't worry
 * Exercise 3 - Managing Stream Length: [start](exercises/exercise-3-start.md)
 * Exercise 4 - Streams Consumer Groups: [start](exercises/exercise-4-start.md)
 * Demo 1 - From RabbitMQ to Redis Streams: [start](exercises/exercise-5-start.md)
-* Demo 2 - Ingest Data to Redis Streams: [start](exercises/exercise-6-start.md)
+* Demo 2 - Ingest data into Redis Streams: [start](exercises/exercise-6-start.md)
 * Demo 3 - Persist Redis Streams to AWS S3: [start](exercises/exercise-7-start.md)
 
 ## Troubleshooting
