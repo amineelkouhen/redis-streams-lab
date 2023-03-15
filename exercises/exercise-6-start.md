@@ -2,7 +2,7 @@
 
 # Demo 2 - Load data from AWS S3 to Redis Streams
 
-To load data from plain file to Redis Streams, we will use RIOT (Redis Input Output Tools) to ingest plain CSV files into Redis as streams.
+To load data from plain files to Redis Streams, we will use RIOT (Redis Input Output Tools) to ingest plain CSV files into Redis as streams.
 
 Let's get started!
 
@@ -24,8 +24,8 @@ Or, you can simply run the latest docker image:
 docker run fieldengineering/riot-file [OPTIONS] [COMMAND]
 ```
 ## Batch Ingestion using RIOT
-
-Batch ingestion is the process of collecting and transferring data in batches according to scheduled intervals. Redis Input/Output Tools (RIOT) is a series of utilities designed to help you get data in and out of Redis in a batch fashion. It consists of several module that can ingest data from files (RIOT-File), or from relational databases to Redis (RIOT-DB). It can be also used to migrate data from/to Redis (RIOT-Redis). RIOT supports Redis open-source (OSS) and Redis Enterprise in either standalone or cluster deployments.
+ 
+Redis Input/Output Tools (RIOT) is a series of utilities designed to help you get data in and out of Redis in a batch fashion. It consists of several module that can ingest data from files (RIOT-File), or from relational databases to Redis (RIOT-DB). It can be also used to migrate data from/to Redis (RIOT-Redis). RIOT supports Redis open-source (OSS) and Redis Enterprise in either standalone or cluster deployments.
 
 The RIOT tool reads a fixed number of records (batch chunk), processes it, and writes it at a time. Then the cycle is repeated until there’s no more data on the source. The default batch size is 50, which means that an execution step reads 50 items at a time from the source, processes them, and finally writes then to the target. If the target is Redis, writing is done in a single command [pipeline](https://redis.io/topics/pipelining) to minimize the number of roundtrips to the server. You can change the batch size (and hence pipeline size) using the `--batch` option. The optimal batch size in terms of throughput depends on a few factors like record size and command types (see [here](https://stackoverflow.com/a/32165090) for details). 
 
