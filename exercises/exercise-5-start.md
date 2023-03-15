@@ -6,6 +6,31 @@ We're finally going to look at how we can programmatically work with Redis. In t
 
 Let's get started!
 
+## Install and deploy the broker
+From a terminal session, install the RabbitMQ broker. For a macOS environment, you can use homebrew :
+
+```shell
+brew update
+brew install rabbitmq
+```
+
+Configure the terminal environment to include the RabbitMQ sbin folder in the PATH:
+
+```shell
+export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
+```
+In a new terminal session, start the RabbitMQ broker:
+
+```
+rabbitmq-server
+```
+
+Do a health check using the rabbitmqctl status command:
+
+```
+rabbitmqctl status
+``` 
+
 ## Goals
 
 After this exercise you will have a running app that consumes RabbitMQ messages and put store them as streams in Redis. The first piece of code consists of a RabbitMQ producer. The producer simulates sensors that send geographical coordinates and temperatures from different locations.
