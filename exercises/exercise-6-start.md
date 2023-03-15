@@ -1,6 +1,6 @@
 <img src="../img/redis-logo-full-color-rgb.png" height=100/>
 
-# Demo 2 - Persist Redis Streams to AWS S3
+# Demo 3 - Persist Redis Streams to AWS S3
 
 In this exercise we will persist our working Redis database into a specific S3 bucket in AWS. Then we will create another database from this backup. For this exeercice, you need an AWS account with working Access key ID	and Secret access key.
 
