@@ -1,6 +1,6 @@
 <img src="../img/redis-logo-full-color-rgb.png" height=100/>
 
-# Demo 2 - Load data from AWS S3 to Redis Streams
+# Demo 2 - Ingest data (flat files) into Redis Streams
 
 To load data from plain files to Redis Streams, we will use RIOT (Redis Input Output Tools) to ingest plain CSV files into Redis as streams.
 
@@ -68,8 +68,14 @@ Let's consider this CSV [file]( https://raw.githubusercontent.com/aelkouhen/Geo-
 
 </div>
 
-The following command imports that CSV file into a Redis Stream `airport` as the key prefix. 
+The following command imports that CSV file into a Redis Stream `airports`. 
 
 ```
-riot-file -h localhost -p 6379 import https://raw.githubusercontent.com/aelkouhen/Geo-Maersk/master/geo_unlocode/airport.csv --header xadd --keyspace airport --keys AirportID
+riot-file -h localhost -p 6379 import https://raw.githubusercontent.com/aelkouhen/Geo-Maersk/master/geo_unlocode/airport.csv --header xadd --keyspace airports
 ``` 
+
+![RedisInsight](https://user-images.githubusercontent.com/105490765/225295847-eac5e463-d6d8-4dc1-83d8-65831b97a12c.png)
+
+## Next steps
+
+Excellent work! We have ingested a plain into Redis Streams using RIOT. In the next [exercise](exercise-7-start.md), we will try to persist our Redis streams in an AWS S3 bucket. 
