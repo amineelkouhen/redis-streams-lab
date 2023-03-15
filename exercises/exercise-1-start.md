@@ -20,7 +20,7 @@ docker exec -it redis-stack redis-cli
 
 By default, the Redis CLI will connect to 127.0.0.1 and port 6379. If you want to use a different hostname and port, you can use the `-h` and `-p` options to specify a diferent hostname and port.
 
-### Strings and hashes
+### Streams
 * Let's see if we can store something in Redis Streams and retrieve it again, so let's start simple and start with adding to a stream called `new-hires` and includes the fields name and start-date for yourself.
 
 ```
